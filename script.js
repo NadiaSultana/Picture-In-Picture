@@ -1,5 +1,6 @@
 const videoElement = document.getElementById("video");
 const button = document.getElementById("button");
+const buttonStop = document.getElementById("buttonStop");
 
 //promt to selct media strem, pass to video element, then play
 
@@ -21,6 +22,18 @@ button.addEventListener("click", async () => {
   await videoElement.requestPictureInPicture();
   //Reset the buttom
   button.disabled = false;
+
+  button.hidden = true;
+
+  buttonStop.hidden = false;
+});
+
+buttonStop.addEventListener("click", () => {
+  document.exitPictureInPicture();
+
+  buttonStop.hidden = true;
+
+  button.hidden = false;
 });
 
 selectMediaStream();
